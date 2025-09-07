@@ -7,6 +7,7 @@ BEGIN
 	
 	UPDATE fromTable 
 	SET Name = CONCAT('UPDATED_User_', ID) -- new Name will look like : UPDATED_USER_1
-	WHERE ID BETWEEN @StartID AND (@StartID + @RowCount - 1); -- our update range - from start to end
+	WHERE ID BETWEEN @StartID AND (@StartID + @RowCount - 1); -- our update range - from start to an end
+
 
 END;
