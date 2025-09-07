@@ -18,7 +18,7 @@ The workflow will include:
   - A checksum validation function to verify data integrity
 3. Finally, transferring the processed data.
 
-### 🧩 Creating Main Table in SSMS and enabling SQL Server Agent  
+### 🧩 Creating Main Tables in SSMS and enabling SQL Server Agent  
 Our first step is to open SSMS. Then, we start the SQL Server Agent by right-clicking on it and selecting Start. This step is required if we want to use jobs in our project.  
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/4091ed90-4d2e-40e9-b73e-018190819ddd" />   
 Enabled SQL Server Agent should have green dot visible instead of red cross.  
@@ -26,7 +26,11 @@ Our next task is to create the main database with two tables: one as the source 
 We right-click on Databases -> New Database. Then we open New Query.    
 You can find the SQL code that creates two tables here: ***SQL/create-table.sql*** <br>
 Here are resuls for this part: <br>
-<img width="331" height="335" alt="image" src="https://github.com/user-attachments/assets/e4c8c59e-c0f6-4ad3-ab94-92e308f11e99" />
+<img width="331" height="335" alt="image" src="https://github.com/user-attachments/assets/e4c8c59e-c0f6-4ad3-ab94-92e308f11e99" />  <br>
+
+### 🧩 Creating intelligent insert  
+This and the next two steps are crucial, as they will allow us to add, update, and delete any number of rows simply by executing a stored procedure. Once we have completed all three SQL scripts, we will then create an automated job to perform this task for us. <br> 
+You can find code for this section here: 
 
 
 
