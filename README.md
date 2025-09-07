@@ -13,9 +13,9 @@ The workflow will include:
 1. Creating a SQL Server job for inserting any number of records into a table,  
 2. Implementing several functions:
    - multi-use intelligent Insert / Update / Delete funcion,  
-  - CDC to capture changes,  
-  - A monitoring function to track modifications,  
-  - A checksum validation function to verify data integrity
+   - CDC to capture changes, Initial Load, Enabling and Disabling CDC,     
+   - A monitoring function to track modifications,  
+   - A checksum validation function to verify data integrity
 3. Finally, transferring the processed data.
 
 ### 🧩 Creating Main Tables in SSMS and enabling SQL Server Agent  
@@ -58,7 +58,28 @@ What distinguishes manually calling this procedure from the insert procedure is 
 And for now, that makes two stored procedures in your Programmability folder. <br>
 <img width="150" height="122" alt="image" src="https://github.com/user-attachments/assets/90f7431a-e697-41d6-90b9-ac5ad4a931c2" />  
 
-### 🧩 Creating INITIAL LOAD stored procedure 
+### 🧩 Creating Enabling and Disabling CDC stored procedure  
+#### 1. Enabling CDC ✅   
+This procedure is very useful in our project because it allows us to enable Change Data Capture (CDC) on any table with a single command. Once executed, CDC is enabled both at the database and table level.<br>
+
+When CDC is enabled, SQL Server automatically creates a set of **system tables** that store change history, including:    
+- `cdc.change_tables` → metadata about captured tables,  
+- `cdc.captured_columns` → details about tracked columns,  
+- `cdc.lsn_time_mapping` → mapping between LSNs and transaction timestamps,  
+- `cdc.dbo_<TableName>_CT` → the main change table with captured INSERT/UPDATE/DELETE operations. <br>
+
+In the change table, a special column `__$operation` describes the type of operation:   
+- **1** → DELETE  
+- **2** → INSERT  
+- **3** → UPDATE (before values)  
+- **4** → UPDATE (after values)
+
+If something goes wrong - cdc.dbo_<TableName>_CT should be our first suspect! 😁 <br>
+You can find code for this section here: 
+
+
+
+
 
 
 
