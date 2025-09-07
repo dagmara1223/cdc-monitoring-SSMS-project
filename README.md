@@ -18,4 +18,13 @@ The workflow will include:
   - A checksum validation function to verify data integrity
 3. Finally, transferring the processed data.
 
-### 🧩 Creating Main Table in SSMS
+### 🧩 Creating Main Table in SSMS and enabling SQL Server Agent  
+Our first step is to open SSMS. Then, we start the SQL Server Agent by right-clicking on it and selecting Start. This step is required if we want to use jobs in our project.  
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/4091ed90-4d2e-40e9-b73e-018190819ddd" />   
+Enabled SQL Server Agent should have green dot visible instead of red cross.  
+Our next task is to create the main database with two tables: one as the source (from which the data will be transferred) and the other as the target (that will receive the data). 
+We right-click on Databases -> New Database. Then we open New Query.   
+You can find the SQL code that creates two tables here: 
+
+
+
