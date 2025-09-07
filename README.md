@@ -32,20 +32,41 @@ Here are resuls for this part: <br>
 This and the next two steps are crucial, as they will allow us to add, update, and delete any number of rows simply by executing a stored procedure. Once we have completed all three SQL scripts, we will then create an automated job to perform this task for us. <br> 
 You can find code for this section here:  ***SQL/insert.sql*** <br>
 <img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/741ebf36-dca3-4f3a-a84a-b2051d5509fd" />  
+<br>
+
+‼️ Warning: This photo comes from Modify option. To create such procedure you need to add **CREATE OR** before "ALTER PROCEDURE...". So the whole formula would look like: **CREATE OR ALTER PROCEDURE [dbo].[Inserting]......**
+
+<br>
 This solution offers a key advantage: you don't need to worry about the accuracy of primary keys and indexes during repeated executions. By declaring an @MaxID integer variable, we establish a dynamic insertion point. This ensures new batches of data are appended based on the highest existing index. For example, if the last index is 5 and you intend to insert 10 new records, the procedure will commence at index 6. <br>
-You can find your stored procedure within Programmability folder :   
-<img width="297" height="230" alt="image" src="https://github.com/user-attachments/assets/1704c369-a00f-436e-a4a5-cbb978fa29ce" />  
+You can find your stored procedure within Programmability folder :   <br>
+<img width="297" height="230" alt="image" src="https://github.com/user-attachments/assets/1704c369-a00f-436e-a4a5-cbb978fa29ce" />   <br>
 And for now, we simply test the procedure. So in your SQL Query execute 3 times:  
 **EXEC [dbo].[Inserting]**   
-<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/5848da94-10cd-43bf-b4b3-0e0d484b66be" />   
-Supposing everything went well, after executing  **SELECT * FROM [dbo].[fromTable]** you can now see data being stored in your table.  
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/5848da94-10cd-43bf-b4b3-0e0d484b66be" />   <br>
+Supposing everything went well, after executing  "SELECT * FROM [dbo].[fromTable]" you can now see data being stored in your table.  <br>
 <img width="500" height="572" alt="image" src="https://github.com/user-attachments/assets/b8aa52fe-7970-4255-b033-e2a10dc1866c" />  
 
 ### 🧩 Creating UPDATE stored procedure  
 Our next goal is to create a stored procedure that will allow us to update data. Similar to the previous one, it will be executed with a single EXEC command.  
-You can find code for this section here: ***SQL/updating.sql***
+You can find code for this section here: ***SQL/updating.sql***   
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/4ebdd689-37e9-4bee-8314-daf17da50daa" />    
 
- 
+Please remember that this photo comes from Modify option. Look at warning in section **Creating intelligent INSERT stored procedure**.   
+
+What distinguishes manually calling this procedure from the insert procedure is that when we call it, we have to specify which index to start from and how many changes we intend to make. For example, by calling **EXEC [dbo].[Updating] @StartID = 10, @RowCount = 100;**, we will start modifying data from index 10 up to index 109. <br>
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/b14bc1c1-4ecc-4c43-bbd4-4f6d1d64e50d" />   <br>
+And for now, that makes two stored procedures in your Programmability folder. <br>
+<img width="150" height="122" alt="image" src="https://github.com/user-attachments/assets/90f7431a-e697-41d6-90b9-ac5ad4a931c2" />  
+
+### 🧩 Creating INITIAL LOAD stored procedure 
+
+
+
+
+
+
+
+
 
 
 
