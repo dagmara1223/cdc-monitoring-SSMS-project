@@ -22,9 +22,12 @@ The workflow will include:
 Our first step is to open SSMS. Then, we start the SQL Server Agent by right-clicking on it and selecting Start. This step is required if we want to use jobs in our project.  
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/4091ed90-4d2e-40e9-b73e-018190819ddd" />   
 Enabled SQL Server Agent should have green dot visible instead of red cross.  
-Our next task is to create the main database with two tables: one as the source (from which the data will be transferred) and the other as the target (that will receive the data). 
-We right-click on Databases -> New Database. Then we open New Query.   
-You can find the SQL code that creates two tables here: 
+Our next task is to create the main database with two tables: one as the source (from which the data will be transferred) and the other as the target (that will receive the data). <br>
+We right-click on Databases -> New Database. Then we open New Query.    
+You can find the SQL code that creates two tables here: ***SQL/create-table.sql*** <br>
+Here are resuls for this part: <br>
+<img width="331" height="335" alt="image" src="https://github.com/user-attachments/assets/e4c8c59e-c0f6-4ad3-ab94-92e308f11e99" />
+
 
 
 
