@@ -75,7 +75,24 @@ In the change table, a special column `__$operation` describes the type of opera
 - **4** → UPDATE (after values)
 
 If something goes wrong - cdc.dbo_<TableName>_CT should be our first suspect! 😁 <br>
-You can find code for this section here: 
+You can find code for this section here: ***SQL/cdc_enable.sql***         
+<img width="700" height="786" alt="image" src="https://github.com/user-attachments/assets/16917893-3390-4f18-b30b-f4270ee76200" />  
+Programmability folder just gained another stored procedure and we are off to testing.  
+
+‼️ Remember that your SQL Server Agent should be enabled. If you have any troubles - check out the  **Creating Main Tables in SSMS and enabling SQL Server Agent** section.  
+
+<img width="500" height="330" alt="image" src="https://github.com/user-attachments/assets/e472692b-66ed-476c-88fb-eda4bd619730" />  
+
+Now we can view the contents of additional tables that were created with our CDC:  
+
+<img width="322" height="277" alt="image" src="https://github.com/user-attachments/assets/a778d96d-3751-4c12-839f-7ac90067b52e" />  
+
+Remember that you can check and get familiar with them simply using SELECT statements as presented below:  
+#### SELECT * FROM [cdc].[dbo_fromTable_CT]; 
+#### SELECT * FROM [cdc].[lsn_time_mapping];
+...
+
+
 
 
 
