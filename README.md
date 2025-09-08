@@ -7,8 +7,7 @@ One of the key advantages of Change Data Capture (CDC) is its ability to:
 - Provide control over which data is captured,  
 - Improve efficiency by moving only changed records instead of the entire dataset,  
 - Enhance data security through change tracking.  
-
-In this project, I present skills I mainly developed during my internship at Orange.  
+ 
 The workflow will include:  
 1. Creating a SQL Server job for inserting any number of records into a table,  
 2. Implementing several functions:
