@@ -105,7 +105,9 @@ Code for this section in folder: ***SQL/disablingCDC.sql***
 You can now see that we gained great power to EXEC enable and disable :   
 <img width="300" height="407" alt="image" src="https://github.com/user-attachments/assets/a3362e72-e9ca-4a22-b8dc-fb33644405f3" />  
 
-‼️ Remember: system tables are created only when you enable CDC. Once you disable it, those tables are automatically removed and will no longer be accessible. In other words, they are completely cleaned up. This is important to keep in mind, because it means that all captured change data will be lost when CDC is disabled by you. 
+‼️ Remember: system tables are created only when you enable CDC. Once you disable it, those tables are automatically removed and will no longer be accessible. In other words, they are completely cleaned up. This is important to keep in mind, because it means that all captured change data will be lost when CDC is disabled by you. So just make sure that your actions are fully thought out. For now we don't really have any important data that we want to tranfer but it will change within next sections.  
+
+### 🧩 Loading Initial (Already Existing) Data 
 
 
 
