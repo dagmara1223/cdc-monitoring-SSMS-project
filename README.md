@@ -99,7 +99,14 @@ Code for this section in folder: ***SQL/disablingCDC.sql***
 
 <img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/1fd357a5-2784-4bf8-8bf9-94378392e4a4" />  
 <img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/442fb6f1-964b-41c1-a4e2-04d66ab250b6" />  
-<img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/c9b819e6-5ee1-4662-a72c-159253441651" />
+<img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/c9b819e6-5ee1-4662-a72c-159253441651" />  
+
+
+You can now see that we gained great power to EXEC enable and disable :   
+<img width="300" height="407" alt="image" src="https://github.com/user-attachments/assets/a3362e72-e9ca-4a22-b8dc-fb33644405f3" />  
+
+‼️ Remember: system tables are created only when you enable CDC. Once you disable it, those tables are automatically removed and will no longer be accessible. In other words, they are completely cleaned up. This is important to keep in mind, because it means that all captured change data will be lost when CDC is disabled by you. 
+
 
 
 
