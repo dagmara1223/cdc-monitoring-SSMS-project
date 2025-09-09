@@ -18,18 +18,18 @@ The workflow will include:
 3. Finally, transferring the processed data.
 
 ### 🧩 Creating Main Tables in SSMS and enabling SQL Server Agent  
-Our first step is to open SSMS. Then, we start the SQL Server Agent by right-clicking on it and selecting Start. This step is required if we want to use jobs in our project.  
+Our first step is to open SSMS. Then, we start the SQL Server Agent by right-clicking on it and selecting Start. This step is required if we want to use jobs (and cdc) in our project.  
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/4091ed90-4d2e-40e9-b73e-018190819ddd" />   
 Enabled SQL Server Agent should have green dot visible instead of red cross.  
 Our next task is to create the main database with two tables: one as the source (from which the data will be transferred) and the other as the target (that will receive the data). <br>
 We right-click on Databases -> New Database. Then we open New Query.    
-You can find the SQL code that creates two tables here: ***SQL/create-table.sql*** <br>
+You can find the SQL code that creates two tables in folder: ***SQL/create-table.sql*** <br>
 Here are resuls for this part: <br>
 <img width="331" height="335" alt="image" src="https://github.com/user-attachments/assets/e4c8c59e-c0f6-4ad3-ab94-92e308f11e99" />  <br>
 
 ### 🧩 Creating intelligent INSERT stored procedure  
 This and the next two steps are crucial, as they will allow us to add, update, and delete any number of rows simply by executing a stored procedure. Once we have completed all three SQL scripts, we will then create an automated job to perform this task for us. <br> 
-You can find code for this section here:  ***SQL/insert.sql*** <br>
+You can find code for this section in folder:  ***SQL/insert.sql*** <br>
 <img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/741ebf36-dca3-4f3a-a84a-b2051d5509fd" />  
 <br>
 
@@ -47,7 +47,7 @@ Supposing everything went well, after executing  "SELECT * FROM [dbo].[fromTable
 
 ### 🧩 Creating UPDATE stored procedure  
 Our next goal is to create a stored procedure that will allow us to update data. Similar to the previous one, it will be executed with a single EXEC command.  
-You can find code for this section here: ***SQL/updating.sql***   
+You can find code for this section in folder: ***SQL/updating.sql***   
 <img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/4ebdd689-37e9-4bee-8314-daf17da50daa" />    
 
 Please remember that this photo comes from Modify option. Look at warning in section **Creating intelligent INSERT stored procedure**.   
@@ -59,7 +59,7 @@ And for now, that makes two stored procedures in your Programmability folder. <b
 
 ### 🧩 Creating Enabling and Disabling CDC stored procedure  
 #### 1. Enabling CDC ✅   
-This procedure is very useful in our project because it allows us to enable Change Data Capture (CDC) on any table with a single command. Once executed, CDC is enabled both at the database and table level.<br>
+This procedure is very useful in such project because it allows us to enable Change Data Capture (CDC) on any table with a single command. Once executed, CDC is enabled both at the database and table level.<br>
 
 When CDC is enabled, SQL Server automatically creates a set of **system tables** that store change history, including:    
 - `cdc.change_tables` → metadata about captured tables,  
@@ -74,7 +74,7 @@ In the change table, a special column `__$operation` describes the type of opera
 - **4** → UPDATE (after values)
 
 If something goes wrong - cdc.dbo_<TableName>_CT should be our first suspect! 😁 <br>
-You can find code for this section here: ***SQL/cdc_enable.sql***         
+You can find code for this section in folder: ***SQL/cdc_enable.sql***         
 <img width="700" height="786" alt="image" src="https://github.com/user-attachments/assets/16917893-3390-4f18-b30b-f4270ee76200" />  
 Programmability folder just gained another stored procedure and we are off to testing.  
 
@@ -89,7 +89,19 @@ Now we can view the contents of additional tables that were created with our CDC
 Remember that you can check and get familiar with them simply using SELECT statements as presented below:  
 #### SELECT * FROM [cdc].[dbo_fromTable_CT]; 
 #### SELECT * FROM [cdc].[lsn_time_mapping];
-...
+...   
+#### 4. Disabling CDC ✅  
+But why? you might ask. I’ve found it’s a great way to cope with the overwhelming number of things that aren’t working.   
+📝 Let’s assume this scenario: your CDC procedure (not even created yet) fails. You keep trying to push data, it only gets worse, and—frustrated—you’re now tempted to delete all data from your tables. That’s both a good and a bad idea. Yes, we do want to clear the tables—but if you don’t disable CDC first, you’ll end up with even more chaos: extra change rows, a lot more data to sift through, and a flood of unwanted **DELETE** entries in the CT table.  
+
+That is where procedure that disable CDC comes in handy.   
+Code for this section in folder: ***SQL/disablingCDC.sql***
+
+<img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/1fd357a5-2784-4bf8-8bf9-94378392e4a4" />  
+<img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/442fb6f1-964b-41c1-a4e2-04d66ab250b6" />  
+<img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/c9b819e6-5ee1-4662-a72c-159253441651" />
+
+
 
 
 
