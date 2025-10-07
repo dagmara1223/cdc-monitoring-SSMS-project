@@ -107,7 +107,16 @@ You can now see that we gained great power to EXEC enable and disable :
 
 ‼️ Remember: system tables are created only when you enable CDC. Once you disable it, those tables are automatically removed and will no longer be accessible. In other words, they are completely cleaned up. This is important to keep in mind, because it means that all captured change data will be lost when CDC is disabled by you. So just make sure that your actions are fully thought out. For now we don't really have any important data that we want to tranfer but it will change within next sections.  
 
-### 🧩 Loading Initial (Already Existing) Data 
+### 🧩 Loading Initial (Already Existing) Data    
+The main core of Initial Load procedure is to load already existing data into target database before we start monitoring chanes using CDC. Golden steps here are:  
+1️⃣ Verify the existence of the source database and table.  
+2️⃣ Check whether CDC is enabled — both at the database and table level.  
+3️⃣ Validate the destination database and table.  
+ - If they don’t exist, create the necessary tables and batches, then load the data.  
+ - If they already exist, truncate the existing data before loading new records.  
+4️⃣ Batch and transfer the data from the source to the destination.  
+
+
 
 
 
