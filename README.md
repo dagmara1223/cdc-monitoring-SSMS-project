@@ -109,12 +109,21 @@ You can now see that we gained great power to EXEC enable and disable :
 
 ### 🧩 Loading Initial (Already Existing) Data    
 The main core of Initial Load procedure is to load already existing data into target database before we start monitoring chanes using CDC. Golden steps here are:  
-1️⃣ Verify the existence of the source database and table.  
+1️⃣ Verify the existence of the database and table.  
 2️⃣ Check whether CDC is enabled — both at the database and table level.  
-3️⃣ Validate the destination database and table.  
+3️⃣ Validate the destination table.  
  - If they don’t exist, create the necessary tables and batches, then load the data.  
  - If they already exist, truncate the existing data before loading new records.  
-4️⃣ Batch and transfer the data from the source to the destination.  
+4️⃣ Batch and transfer the data from the source to the destination.   
+
+**Verifying existence of Database:**    
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a066a9cc-4e55-4877-80d9-607f8658d7d4" />   
+
+And the final approval:   
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/a190f30b-67fa-4770-be52-e4b82955d100" />
+
+***Souce code: SQL/checking_database.sql***
+
 
 
 
