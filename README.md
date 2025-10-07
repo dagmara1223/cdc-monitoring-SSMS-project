@@ -116,13 +116,7 @@ The main core of Initial Load procedure is to load already existing data into ta
  - If they already exist, truncate the existing data before loading new records.  
 4️⃣ Batch and transfer the data from the source to the destination.   
 
-**Verifying existence of Database:**    
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a066a9cc-4e55-4877-80d9-607f8658d7d4" />   
 
-And the final approval:   
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/a190f30b-67fa-4770-be52-e4b82955d100" />
-
-***Souce code: SQL/checking_database.sql***
 
 
 
