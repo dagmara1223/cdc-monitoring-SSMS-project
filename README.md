@@ -112,8 +112,8 @@ The main core of Initial Load procedure is to load already existing data into ta
 1️⃣ Verify the existence of the database and table.  
 2️⃣ Check whether CDC is enabled — both at the database and table level.  
 3️⃣ Validate the destination table.  
- - If they don’t exist, create the necessary tables and batches, then load the data.  
- - If they already exist, truncate the existing data before loading new records.  
+ - If it doesn’t exist, create the necessary table and batches, then load the data.  
+ - If it already exists, truncate the existing data before loading new records.  
 4️⃣ Batch and transfer the data from the source to the destination.   
 
 ✅ The first task is to verify whether the database, source table, and destination table exist. The SQL script responsible for this check is located in **SQL/check-up.sql**.  
