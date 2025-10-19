@@ -116,6 +116,27 @@ The main core of Initial Load procedure is to load already existing data into ta
  - If they already exist, truncate the existing data before loading new records.  
 4️⃣ Batch and transfer the data from the source to the destination.   
 
+✅ The first task is to verify whether the database, source table, and destination table exist. The SQL script responsible for this check is located in **SQL/check-up.sql**.  
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/21ea5a9f-6992-4b0f-803c-50559f86ead2" />  
+We can approve it's function by providing such arguments in our Main Query:  
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/ce15ae1d-ad37-404a-994b-e793529b0fff" />  
+<br>
+✅ After confirming that the source and destination tables exist and are accessible, we can proceed to the next step — verifying Change Data Capture (CDC).
+
+To perform this check, we create a new stored procedure that validates whether CDC is enabled both at the database and table level.  
+<br>
+<img width="600" height="613" alt="image" src="https://github.com/user-attachments/assets/72e9a05d-c6c5-4578-aa6f-0bd1227c2455" />    
+Additionaly, we can execute our new procedure using this command:  
+<img width="600" height="652" alt="image" src="https://github.com/user-attachments/assets/01f74dd2-e35f-4c9e-a0a3-a37107fa4c76" />  
+Code for this part is in folder: **SQL/validating_CDC.sql**.
+
+
+
+
+
+
+
+
 
 
 
