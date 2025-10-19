@@ -128,7 +128,10 @@ To perform this check, we create a new stored procedure that validates whether C
 <img width="600" height="613" alt="image" src="https://github.com/user-attachments/assets/72e9a05d-c6c5-4578-aa6f-0bd1227c2455" />    
 Additionaly, we can execute our new procedure using this command:  
 <img width="600" height="652" alt="image" src="https://github.com/user-attachments/assets/01f74dd2-e35f-4c9e-a0a3-a37107fa4c76" />  
-Code for this part is in folder: **SQL/validating_CDC.sql**.
+Code for this part is in folder: **SQL/validating_CDC.sql**.  
+
+✅ After confirming that both CDC and all required tables are properly configured, we can proceed to the initial load step. In this phase, we validate the destination table:  
+- If it doesn’t exist, we create it and perform the initial data load in batches.
 
 
 
